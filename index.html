@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erica Bianchini Academy — Microblading & Trucco Semipermanente</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+–verde: #005F58;
+–nero: #1A1A1A;
+–bianco: #F4F4F2;
+–verde-light: rgba(0,95,88,0.08);
+–verde-mid: rgba(0,95,88,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–bianco);
+color: var(–nero);
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 20px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(244,244,242,0.95);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid rgba(0,95,88,0.1);
+}
+
+.nav-logo {
+font-family: ‘Great Vibes’, cursive;
+font-size: 1.8rem;
+color: var(–verde);
+text-decoration: none;
+}
+
+.nav-links {
+display: flex;
+gap: 32px;
+list-style: none;
+}
+
+.nav-links a {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.8rem;
+font-weight: 400;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–nero);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(–verde); }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding-top: 80px;
+}
+
+.hero-left {
+padding: 80px 60px 80px 80px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.hero-eyebrow {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–verde);
+margin-bottom: 24px;
+}
+
+.hero-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2.8rem, 4vw, 4.2rem);
+font-weight: 300;
+line-height: 1.1;
+color: var(–nero);
+margin-bottom: 32px;
+}
+
+.hero-title em {
+font-style: italic;
+color: var(–verde);
+}
+
+.hero-sub {
+font-size: 1rem;
+line-height: 1.7;
+color: #444;
+max-width: 420px;
+margin-bottom: 48px;
+}
+
+.btn-primary {
+display: inline-block;
+background: var(–verde);
+color: var(–bianco);
+padding: 16px 40px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.8rem;
+font-weight: 500;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.3s, transform 0.2s;
+align-self: flex-start;
+}
+
+.btn-primary:hover {
+background: #004840;
+transform: translateY(-1px);
+}
+
+.hero-right {
+background: var(–verde);
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+.hero-right::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ viewBox=‘0 0 60 60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cg fill=‘none’ fill-rule=‘evenodd’%3E%3Cg fill=’%23F4F4F2’ fill-opacity=‘0.04’%3E%3Ccircle cx=‘30’ cy=‘30’ r=‘1’/%3E%3C/g%3E%3C/g%3E%3C/svg%3E”);
+opacity: 0.5;
+}
+
+.hero-placeholder {
+width: 300px;
+height: 380px;
+border: 1px solid rgba(244,244,242,0.2);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 16px;
+position: relative;
+z-index: 1;
+}
+
+.hero-placeholder-text {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+color: rgba(244,244,242,0.5);
+letter-spacing: 0.1em;
+text-align: center;
+font-style: italic;
+}
+
+.hero-signature {
+font-family: ‘Great Vibes’, cursive;
+font-size: 2.5rem;
+color: rgba(244,244,242,0.8);
+}
+
+/* NUMBERS */
+.numbers {
+background: var(–nero);
+padding: 60px 80px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 40px;
+text-align: center;
+}
+
+.number-item {}
+
+.number-value {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 3rem;
+font-weight: 300;
+color: var(–bianco);
+line-height: 1;
+margin-bottom: 8px;
+}
+
+.number-label {
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: rgba(244,244,242,0.5);
+}
+
+/* SECTION */
+section { padding: 100px 80px; }
+
+.section-eyebrow {
+font-size: 0.7rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–verde);
+margin-bottom: 16px;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2rem, 3vw, 3rem);
+font-weight: 300;
+line-height: 1.15;
+margin-bottom: 40px;
+max-width: 600px;
+}
+
+/* IL PROBLEMA */
+.problema {
+background: var(–bianco);
+border-top: 1px solid rgba(0,95,88,0.1);
+}
+
+.problema-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+
+.problema-text p {
+font-size: 1rem;
+line-height: 1.8;
+color: #555;
+margin-bottom: 20px;
+}
+
+.problema-text p strong {
+color: var(–nero);
+font-weight: 500;
+}
+
+.problema-list {
+list-style: none;
+}
+
+.problema-list li {
+padding: 20px 0;
+border-bottom: 1px solid rgba(0,95,88,0.1);
+font-size: 0.95rem;
+line-height: 1.6;
+color: #444;
+display: flex;
+gap: 16px;
+align-items: flex-start;
+}
+
+.problema-list li::before {
+content: ‘—’;
+color: var(–verde);
+flex-shrink: 0;
+margin-top: 2px;
+}
+
+/* CHI SONO */
+.chi-sono {
+background: var(–verde-light);
+}
+
+.chi-sono-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.chi-sono-img {
+background: var(–verde-mid);
+aspect-ratio: 3/4;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid rgba(0,95,88,0.15);
+}
+
+.chi-sono-img span {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+color: rgba(0,95,88,0.4);
+font-size: 0.9rem;
+}
+
+.chi-sono-text p {
+font-size: 1rem;
+line-height: 1.8;
+color: #444;
+margin-bottom: 20px;
+}
+
+.credential {
+display: flex;
+gap: 12px;
+align-items: flex-start;
+margin-bottom: 16px;
+}
+
+.credential-dot {
+width: 6px;
+height: 6px;
+background: var(–verde);
+border-radius: 50%;
+margin-top: 8px;
+flex-shrink: 0;
+}
+
+.credential span {
+font-size: 0.9rem;
+line-height: 1.6;
+color: #444;
+}
+
+/* CORSO */
+.corso {
+background: var(–nero);
+color: var(–bianco);
+}
+
+.corso .section-title { color: var(–bianco); }
+.corso .section-eyebrow { color: rgba(244,244,242,0.5); }
+
+.corso-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+margin-top: 60px;
+}
+
+.corso-fase {
+background: rgba(244,244,242,0.04);
+padding: 40px 32px;
+border: 1px solid rgba(244,244,242,0.08);
+transition: background 0.3s;
+}
+
+.corso-fase:hover {
+background: rgba(0,95,88,0.2);
+}
+
+.corso-fase-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 3rem;
+font-weight: 300;
+color: rgba(244,244,242,0.15);
+line-height: 1;
+margin-bottom: 20px;
+}
+
+.corso-fase-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+font-weight: 300;
+color: var(–bianco);
+margin-bottom: 16px;
+}
+
+.corso-fase-desc {
+font-size: 0.85rem;
+line-height: 1.7;
+color: rgba(244,244,242,0.6);
+}
+
+/* INCLUDE */
+.include {
+background: var(–bianco);
+}
+
+.include-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 0;
+border: 1px solid rgba(0,95,88,0.1);
+margin-top: 60px;
+}
+
+.include-item {
+padding: 32px 40px;
+border-bottom: 1px solid rgba(0,95,88,0.1);
+border-right: 1px solid rgba(0,95,88,0.1);
+display: flex;
+gap: 20px;
+align-items: flex-start;
+}
+
+.include-item:nth-child(even) { border-right: none; }
+.include-item:nth-last-child(-n+2) { border-bottom: none; }
+
+.include-icon {
+width: 32px;
+height: 32px;
+background: var(–verde-light);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+color: var(–verde);
+font-size: 0.9rem;
+}
+
+.include-item-text h4 {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem;
+font-weight: 500;
+margin-bottom: 4px;
+color: var(–nero);
+}
+
+.include-item-text p {
+font-size: 0.8rem;
+color: #777;
+line-height: 1.5;
+}
+
+/* INVESTIMENTO */
+.investimento {
+background: var(–verde);
+color: var(–bianco);
+text-align: center;
+}
+
+.investimento .section-eyebrow { color: rgba(244,244,242,0.6); }
+.investimento .section-title {
+color: var(–bianco);
+margin: 0 auto 20px;
+}
+
+.prezzo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 5rem;
+font-weight: 300;
+color: var(–bianco);
+line-height: 1;
+margin: 40px 0 8px;
+}
+
+.prezzo-sub {
+font-size: 0.85rem;
+color: rgba(244,244,242,0.6);
+letter-spacing: 0.1em;
+margin-bottom: 16px;
+}
+
+.caparra-note {
+font-size: 0.8rem;
+color: rgba(244,244,242,0.5);
+margin-bottom: 48px;
+}
+
+.btn-white {
+display: inline-block;
+background: var(–bianco);
+color: var(–verde);
+padding: 18px 48px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.8rem;
+font-weight: 500;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.3s, transform 0.2s;
+}
+
+.btn-white:hover {
+background: #e8e8e6;
+transform: translateY(-1px);
+}
+
+.posti-note {
+margin-top: 24px;
+font-size: 0.75rem;
+color: rgba(244,244,242,0.5);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+/* TESTIMONIANZA */
+.testimonianza {
+background: var(–bianco);
+text-align: center;
+}
+
+.quote-block {
+max-width: 700px;
+margin: 0 auto;
+padding: 60px 0;
+border-top: 1px solid rgba(0,95,88,0.1);
+border-bottom: 1px solid rgba(0,95,88,0.1);
+}
+
+.quote-mark {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 5rem;
+color: var(–verde);
+opacity: 0.2;
+line-height: 0.5;
+margin-bottom: 20px;
+display: block;
+}
+
+.quote-text {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.5rem;
+font-style: italic;
+font-weight: 300;
+line-height: 1.6;
+color: var(–nero);
+margin-bottom: 24px;
+}
+
+.quote-author {
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–verde);
+}
+
+/* FAQ */
+.faq { background: var(–verde-light); }
+
+.faq-list { max-width: 800px; }
+
+.faq-item {
+border-bottom: 1px solid rgba(0,95,88,0.1);
+overflow: hidden;
+}
+
+.faq-question {
+width: 100%;
+background: none;
+border: none;
+padding: 28px 0;
+text-align: left;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+}
+
+.faq-question span {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.95rem;
+font-weight: 400;
+color: var(–nero);
+line-height: 1.4;
+}
+
+.faq-toggle {
+width: 24px;
+height: 24px;
+flex-shrink: 0;
+color: var(–verde);
+font-size: 1.2rem;
+transition: transform 0.3s;
+}
+
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.4s ease;
+}
+
+.faq-item.open .faq-answer { max-height: 200px; }
+
+.faq-answer p {
+font-size: 0.9rem;
+line-height: 1.7;
+color: #555;
+padding-bottom: 28px;
+}
+
+/* CTA FINALE */
+.cta-finale {
+background: var(–nero);
+color: var(–bianco);
+text-align: center;
+}
+
+.cta-finale .section-title {
+color: var(–bianco);
+margin: 0 auto 16px;
+}
+
+.cta-finale p {
+color: rgba(244,244,242,0.6);
+font-size: 0.9rem;
+margin-bottom: 48px;
+}
+
+.cta-links {
+display: flex;
+gap: 16px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+/* FOOTER */
+footer {
+background: var(–nero);
+border-top: 1px solid rgba(244,244,242,0.06);
+padding: 40px 80px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+footer .logo {
+font-family: ‘Great Vibes’, cursive;
+font-size: 1.6rem;
+color: rgba(244,244,242,0.4);
+}
+
+footer p {
+font-size: 0.7rem;
+color: rgba(244,244,242,0.3);
+letter-spacing: 0.05em;
+}
+
+/* ANIMATIONS */
+.fade-in {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+nav { padding: 16px 24px; }
+.nav-links { display: none; }
+.hero { grid-template-columns: 1fr; }
+.hero-left { padding: 60px 24px; }
+.hero-right { min-height: 300px; }
+.numbers { grid-template-columns: repeat(2,1fr); padding: 40px 24px; }
+section { padding: 60px 24px; }
+.problema-grid, .chi-sono-grid { grid-template-columns: 1fr; gap: 40px; }
+.corso-grid { grid-template-columns: 1fr; }
+.include-grid { grid-template-columns: 1fr; }
+.include-item { border-right: none !important; }
+.include-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(0,95,88,0.1) !important; }
+.include-item:last-child { border-bottom: none !important; }
+footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
+.chi-sono-img { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="nav-logo">Erica Bianchini</a>
+  <ul class="nav-links">
+    <li><a href="#corso">Il corso</a></li>
+    <li><a href="#include">Cosa include</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/393315312635" target="_blank">Contatti</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-in">Erica Bianchini Academy · Roma</p>
+    <h1 class="hero-title fade-in">Esci dal corso<br>che <em>sai lavorare.</em><br>Non che hai<br>un certificato.</h1>
+    <p class="hero-sub fade-in">12 anni sul campo. Un metodo basato sulla scienza della pelle, non sulle tendenze. Supporto reale per 8 mesi dopo il corso.</p>
+    <a href="https://wa.me/393315312635?text=Ciao%20Erica%2C%20vorrei%20informazioni%20sul%20corso" target="_blank" class="btn-primary fade-in">Scrivimi per informazioni</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-placeholder">
+      <div class="hero-signature">Erica</div>
+      <p class="hero-placeholder-text">Inserisci qui<br>la tua foto</p>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+
+<div class="numbers">
+  <div class="number-item fade-in">
+    <div class="number-value">12</div>
+    <div class="number-label">Anni di esperienza</div>
+  </div>
+  <div class="number-item fade-in">
+    <div class="number-value">8</div>
+    <div class="number-label">Mesi di supporto post-corso</div>
+  </div>
+  <div class="number-item fade-in">
+    <div class="number-value">1</div>
+    <div class="number-label">Allieva per volta</div>
+  </div>
+  <div class="number-item fade-in">
+    <div class="number-value">3</div>
+    <div class="number-label">Giorni in presenza</div>
+  </div>
+</div>
+
+<!-- IL PROBLEMA -->
+
+<section class="problema" id="problema">
+  <div class="problema-grid">
+    <div class="fade-in">
+      <p class="section-eyebrow">Il mercato della formazione PMU</p>
+      <h2 class="section-title">Il problema che nessuno vuole dirti</h2>
+      <div class="problema-text">
+        <p>Il mercato della formazione nel microblading è pieno di corsi <strong>da 2 giorni in location da sogno</strong>, con materiali patinati e attestati che non valgono nulla nel momento in cui ti trovi davanti a una cliente reale.</p>
+        <p>Ho visto troppe allieve spendere cifre importanti per poi non lavorare mai, o lavorare con paura perché nessuno le aveva davvero formate sulla pelle, sul pigmento, sulla gestione delle complicazioni.</p>
+      </div>
+    </div>
+    <ul class="problema-list fade-in">
+      <li>Corsi da weekend che certificano senza formare</li>
+      <li>Nessun supporto dopo il corso quando incontri il primo problema reale</li>
+      <li>Teoria superficiale, nessuna base scientifica sulla pelle</li>
+      <li>Classi da 10-15 persone dove non hai tempo per praticare abbastanza</li>
+      <li>Attestati inutili nel mondo del lavoro vero</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CHI SONO -->
+
+<section class="chi-sono" id="chi-sono">
+  <div class="chi-sono-grid">
+    <div class="chi-sono-img fade-in">
+      <span>La tua foto qui</span>
+    </div>
+    <div class="fade-in">
+      <p class="section-eyebrow">Chi sono</p>
+      <h2 class="section-title">Formo chi vuole lavorare davvero.</h2>
+      <p style="font-size:1rem;line-height:1.8;color:#444;margin-bottom:28px;">Sono Erica Bianchini. Lavoro nel microblading e trucco semipermanente da 12 anni, con esperienza internazionale e riconoscimenti in competizioni di settore. Ho insegnato in percorsi formativi accreditati e lavoro a Roma con clienti da tutta Italia.</p>
+      <div class="credential"><div class="credential-dot"></div><span>12 anni di pratica clinica sul campo</span></div>
+      <div class="credential"><div class="credential-dot"></div><span>Vincitrice di competizioni internazionali di settore</span></div>
+      <div class="credential"><div class="credential-dot"></div><span>Ex docente in corsi tattoo accreditati (800 ore)</span></div>
+      <div class="credential"><div class="credential-dot"></div><span>Metodo scientifico: anatomia, pigmentologia, farmacologia</span></div>
+      <div class="credential"><div class="credential-dot"></div><span>Formazione individuale — massimo un'allieva per volta</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CORSO -->
+
+<section class="corso" id="corso">
+  <p class="section-eyebrow">La struttura</p>
+  <h2 class="section-title fade-in">Un percorso in tre fasi.<br>Più 8 mesi al tuo fianco.</h2>
+  <div class="corso-grid">
+    <div class="corso-fase fade-in">
+      <div class="corso-fase-num">01</div>
+      <div class="corso-fase-title">Teoria DAD — 20 giorni</div>
+      <p class="corso-fase-desc">Prima di venire a Roma, accedi ai moduli video registrati su Telegram. Fondamenti, anatomia della pelle, igiene, farmacologia, pigmentologia, mappatura sopracciglio. Studi ai tuoi ritmi, con tutto il materiale a disposizione.</p>
+    </div>
+    <div class="corso-fase fade-in">
+      <div class="corso-fase-num">02</div>
+      <div class="corso-fase-title">3 giorni in presenza — Roma</div>
+      <p class="corso-fase-desc">Giorno 1: ripasso teoria e pratica su latex. Giorno 2: ancora pratica su latex, poi modella live con me. Giorno 3: due modelle reali, una al mattino e una al pomeriggio. Lavori tu, io sono accanto a te.</p>
+    </div>
+    <div class="corso-fase fade-in">
+      <div class="corso-fase-num">03</div>
+      <div class="corso-fase-title">8 mesi di supporto attivo</div>
+      <p class="corso-fase-desc">Canale Telegram dedicato con feedback sui tuoi lavori. 8 livelli di esame progressivi. 3 rientri fisici nel mio studio: nelle prime due sessioni lavori tu, nella terza osservi me. Il supporto finisce quando sei pronta, non dopo un weekend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDE -->
+
+<section class="include" id="include">
+  <p class="section-eyebrow">Il pacchetto completo</p>
+  <h2 class="section-title fade-in">Tutto quello che ricevi.</h2>
+  <div class="include-grid fade-in">
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>Moduli teorici su Telegram</h4>
+        <p>Video registrati, accessibili prima e dopo il corso</p>
+      </div>
+    </div>
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>3 giorni in presenza a Roma</h4>
+        <p>Nel mio studio, formazione individuale</p>
+      </div>
+    </div>
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>Kit professionale completo</h4>
+        <p>Tutto il materiale necessario per lavorare</p>
+      </div>
+    </div>
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>8 mesi di supporto attivo</h4>
+        <p>Feedback personalizzato su Telegram</p>
+      </div>
+    </div>
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>3 rientri fisici</h4>
+        <p>Sessioni pratiche aggiuntive nel periodo post-corso</p>
+      </div>
+    </div>
+    <div class="include-item">
+      <div class="include-icon">✦</div>
+      <div class="include-item-text">
+        <h4>Attestato + Logo Junior Academy</h4>
+        <p>Certificazione Erica Bianchini Academy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+
+<section class="investimento" id="investimento">
+  <p class="section-eyebrow">Investimento</p>
+  <h2 class="section-title">Tutto incluso.<br>Niente sorprese.</h2>
+  <div class="prezzo">€ 1.800</div>
+  <p class="prezzo-sub">Tutto incluso — kit, teoria, presenza, supporto post-corso</p>
+  <p class="caparra-note">Caparra di prenotazione € 100 · scalabile dal totale</p>
+  <a href="https://wa.me/393315312635?text=Ciao%20Erica%2C%20vorrei%20prenotare%20un%20posto%20per%20il%20corso" target="_blank" class="btn-white">Prenota il tuo posto</a>
+  <p class="posti-note">Corsi individuali · massimo 1 allieva per volta</p>
+</section>
+
+<!-- TESTIMONIANZA -->
+
+<section class="testimonianza">
+  <div class="quote-block fade-in">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">Ho fatto altri corsi prima di incontrare Erica. La differenza è che lei mi ha insegnato a capire cosa succede sotto la pelle, non solo a replicare un gesto. Oggi ho aperto il mio studio.</p>
+    <p class="quote-author">— Allieva Erica Bianchini Academy</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq" id="faq">
+  <p class="section-eyebrow">Domande frequenti</p>
+  <h2 class="section-title fade-in">Hai dubbi? Rispondo qui.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Devo avere esperienza nel settore per iscrivermi?</span>
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer"><p>No. Il percorso parte dalle basi e costruisce ogni competenza in modo progressivo. L'unico requisito è motivazione seria e voglia di lavorare davvero nel settore.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Perché solo un'allieva per volta?</span>
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer"><p>Perché la formazione individuale è l'unico modo per garantire che ogni persona esca davvero preparata. In un gruppo non hai il tempo tecnico necessario per imparare correttamente.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Devo venire fisicamente a Roma?</span>
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer"><p>Sì, per i 3 giorni in presenza e i 3 rientri post-corso. La teoria si fa a distanza su Telegram prima di venire. Molte mie allieve arrivano da fuori Roma.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Cosa succede se durante gli 8 mesi ho un problema con una cliente?</span>
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer"><p>Mi scrivi su Telegram e ti rispondo. È esattamente per questo che esiste il supporto post-corso. Non sei sola a gestire le prime situazioni difficili.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Come prenoto un posto?</span>
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-answer"><p>Scrivimi su WhatsApp o in DM su Instagram @ericabianchini.master. Ti rispondo io direttamente e definiamo insieme le date disponibili.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+
+<section class="cta-finale">
+  <p class="section-eyebrow">Inizia qui</p>
+  <h2 class="section-title fade-in">Pronta a iniziare<br>una carriera vera?</h2>
+  <p>Scrivimi. Ti rispondo io, senza assistenti e senza form da compilare.</p>
+  <div class="cta-links">
+    <a href="https://wa.me/393315312635?text=Ciao%20Erica%2C%20vorrei%20informazioni%20sul%20corso" target="_blank" class="btn-primary">WhatsApp</a>
+    <a href="https://instagram.com/ericabianchini.master" target="_blank" class="btn-primary" style="background:transparent;border:1px solid rgba(244,244,242,0.3);color:var(--bianco);">Instagram @ericabianchini.master</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <span class="logo">Erica Bianchini</span>
+  <p>© 2026 Erica Bianchini Academy · Tutti i diritti riservati · Ideato e realizzato da Erica Bianchini</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
